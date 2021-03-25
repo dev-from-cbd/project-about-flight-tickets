@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flight Tickets</title>
+
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <h1>Flight Tickets</h1>
+    <main>
+      <section class="wrapper">
+        <form class="form-search">
+          <div class="wrapper__search">
+            <div class="input">
+              <label
+                >From
+                <input type="text" class="input__cities-from" required />
+              </label>
+              <ul class="dropdown dropdown__cities-from"></ul>
+            </div>
+
+            <div class="input">
+              <label
+                >To
+                <input type="text" class="input__cities-to" required />
+              </label>
+              <ul class="dropdown dropdown__cities-to"></ul>
+            </div>
+
+            <div class="input input__cities-from">
+              <label
+                >Depart
+                <input type="date" class="input__date-depart" required />
+              </label>
+            </div>
+          </div>
+
+          <div class="wrapper__button">
+            <button type="submit" class="button button__search">
+              <span class="button__search-text">Search</span>
+            </button>
+          </div>
+        </form>
+      </section>
+      <section class="wrapper">
+        <!-- <section class="wrapper__ticket" id="cheapest-ticket">
+				<h2>Самый дешевый билет на выбранную дату</h2>
+				
+			</section> -->
+
+        <!-- <section class="block__ticket" id="other-cheap-tickets">
+				<h2>Самые дешевые билеты на другие даты</h2>
+			</section> -->
+      </section>
+    </main>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
+
+<!-- <h3 class="agent">Aviakassa</h3>
+<div class="ticket__wrapper">
+	<div class="left-side">
+		<a href="https://www.aviasales.ru/search/SVX2905KGD1" class="button button__buy">Купить
+			за 19700₽</a>
+	</div>
+	<div class="right-side">
+		<div class="block-left">
+			<div class="city__from">Вылет из города
+				<span class="city__name">Екатеринбург</span>
+			</div>
+			<div class="date">29 мая 2020 г.</div>
+		</div>
+
+		<div class="block-right">
+			<div class="changes">Без пересадок</div>
+			<div class="city__to">Город назначения:
+				<span class="city__name">Калининград</span>
+			</div>
+		</div>
+	</div>
+</div> -->
