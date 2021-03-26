@@ -1,30 +1,39 @@
 const formSearch = document.querySelector(".form-search"),
-  inputCitiesFrom = document.querySelector(".input__cities-from"),
-  dropdownCitiesFrom = document.querySelector(".dropdown__cities-from"),
-  inputCitiesTo = document.querySelector(".input__cities-to"),
-  dropdownCitiesTo = document.querySelector(".dropdown__cities-to");
+  inputCitiesFrom = formSearch.querySelector(".input__cities-from"),
+  dropdownCitiesFrom = formSearch.querySelector(".dropdown__cities-from"),
+  inputCitiesTo = formSearch.querySelector(".input__cities-to"),
+  dropdownCitiesTo = formSearch.querySelector(".dropdown__cities-to");
 
-const obj = {
-  key: "value",
-  "key two": "value2",
-  key3: true,
-  key4: {
-    a: 1,
-    b: "two",
-  },
-  keyNext: ["array", 5, { a: 1, b: 2 }, [true, false, 0]],
+const city = [
+  "Melbourne",
+  "Sydney",
+  "Bendigo",
+  "Gold Coast",
+  "Perth",
+  "Darvin",
+  "New York",
+  "San Francisco",
+  "London",
+  "Paris",
+  "Mexico",
+  "Toronto",
+  "Bangkok",
+  "Las Vegas",
+  "Madrid",
+];
+
+inputCitiesFrom.addEventListener("input", () => {
+  console.log("event input");
+});
+
+const get = (name) => {
+  console.log("demand of get: " + name);
 };
 
-let a = 100;
-//let a = true;
-//var a = 100;
-let b = a + "1";
+get("Olegus");
 
-console.log(a);
-console.log(typeof a);
+//get(500 years);
 
-console.log(b);
-console.log(typeof b);
+get("bobr");
 
-let value = true;
-console.log(typeof value); // boolean
+get(500);
