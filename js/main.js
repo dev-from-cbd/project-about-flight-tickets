@@ -29,11 +29,3 @@ inputCitiesFrom.addEventListener("input", () => {
 const get = (name) => {
   console.log("demand of get: " + name);
 };
-
-get("Olegus");
-
-//get(500 years);
-
-get("bobr");
-
-get(500);
