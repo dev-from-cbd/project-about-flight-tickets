@@ -23,7 +23,10 @@ const city = [
 ];
 
 inputCitiesFrom.addEventListener("input", () => {
-  console.log("event input");
+  const filterCity = city.filter((item) => {
+    return item.includes(inputCitiesFrom.value);
+    console.log(filterCity);
+  });
 });
 
 const get = (name) => {
