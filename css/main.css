@@ -98,6 +98,9 @@ input {
   box-shadow: 0 0 0 2px #ff6d00;
   outline: none;
   font-family: inherit;
+
+  position: relative;
+  z-index: 1;
 }
 
 .dropdown {
@@ -106,6 +109,9 @@ input {
   color: #000;
   max-height: 300px;
   overflow-x: hidden;
+
+  position: relative;
+  z-index: 2;
 }
 
 .dropdown__city {

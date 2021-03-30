@@ -23,9 +23,22 @@ const city = [
 ];
 
 inputCitiesFrom.addEventListener("input", () => {
+  dropdownCitiesFrom.textContent = "";
+
+  if ((inputCitiesFrom.value !== "")) {
+  }
+
   const filterCity = city.filter((item) => {
-    return item.includes(inputCitiesFrom.value);
-    console.log(filterCity);
+    const fixItem = item.toLowerCase();
+
+    return fixItem.includes(inputCitiesFrom.value.toLowerCase());
+  });
+
+  filterCity.forEach((item) => {
+    const li = document.createElement("li");
+    li.classList.add(".dropdown__city");
+    li.textContent = item;
+    dropdownCitiesFrom.append(li);
   });
 });
 
