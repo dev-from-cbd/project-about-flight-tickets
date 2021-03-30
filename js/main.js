@@ -3,7 +3,6 @@ const formSearch = document.querySelector(".form-search"),
   dropdownCitiesFrom = formSearch.querySelector(".dropdown__cities-from"),
   inputCitiesTo = formSearch.querySelector(".input__cities-to"),
   dropdownCitiesTo = formSearch.querySelector(".dropdown__cities-to");
-
 const city = [
   "Melbourne",
   "Sydney",
@@ -21,27 +20,32 @@ const city = [
   "Las Vegas",
   "Madrid",
 ];
+const showCity = (input, list) => {
+  list.textContent = "";
+
+  if (input.value !== "") {
+    const filterCity = city.filter((item) => {
+      const fixItem = item.toLowerCase();
+
+      return fixItem.includes(input.value.toLowerCase());
+    });
+
+    filterCity.forEach((item) => {
+      const li = document.createElement("li");
+      li.classList.add("dropdown__city");
+      li.textContent = item;
+      list.append(li);
+    });
+  }
+};
 
 inputCitiesFrom.addEventListener("input", () => {
-  dropdownCitiesFrom.textContent = "";
-
-  if ((inputCitiesFrom.value !== "")) {
-  }
-
-  const filterCity = city.filter((item) => {
-    const fixItem = item.toLowerCase();
-
-    return fixItem.includes(inputCitiesFrom.value.toLowerCase());
-  });
-
-  filterCity.forEach((item) => {
-    const li = document.createElement("li");
-    li.classList.add(".dropdown__city");
-    li.textContent = item;
-    dropdownCitiesFrom.append(li);
-  });
+  showCity(inputCitiesFrom, dropdownCitiesFrom);
 });
 
-const get = (name) => {
-  console.log("demand of get: " + name);
-};
+dropdownCitiesFrom.addEventListener("click", (event) => {
+  const target = event.target;
+  if (target.tagName === "LI") {
+    return;
+  }
+});
