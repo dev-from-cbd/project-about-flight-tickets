@@ -45,7 +45,7 @@ inputCitiesFrom.addEventListener("input", () => {
 
 dropdownCitiesFrom.addEventListener("click", (event) => {
   const target = event.target;
-  if (target.tagName === "LI") {
-    console.log(target.textContent);
+  if (target.tagName.toLowerCase() === "li") {
+    inputCitiesFrom.value = target.textContent;
   }
 });
