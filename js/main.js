@@ -40,11 +40,11 @@ const showCity = (input, list) => {
   }
 };
 
-const handlerCity = (event) => {
+const selectCity = (event) => {
   const target = event.target;
   if (target.tagName.toLowerCase() === "li") {
-    inputCitiesTo.value = target.textContent;
-    dropdownCitiesTo.textContent = "";
+    inputCitiesFrom.value = target.textContent;
+    dropdownCitiesFrom.textContent = "";
   }
 };
 
@@ -56,10 +56,10 @@ inputCitiesTo.addEventListener("input", () => {
   showCity(inputCitiesTo, dropdownCitiesTo);
 });
 
-dropdownCitiesFrom.addEventListener("click", () => {
-  handlerCity();
+dropdownCitiesFrom.addEventListener("click", (event) => {
+  selectCity(event);
 });
 
-dropdownCitiesTo.addEventListener("click", () => {
-  handlerCity();
+dropdownCitiesTo.addEventListener("click", (event) => {
+  selectCity(event);
 });
