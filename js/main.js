@@ -57,7 +57,7 @@ inputCitiesTo.addEventListener("input", () => {
 });
 
 dropdownCitiesFrom.addEventListener("click", (event) => {
-  selectCity(event);
+  selectCity(event, inputCitiesFrom, dropdownCitiesFrom);
 });
 
 dropdownCitiesTo.addEventListener("click", (event) => {
