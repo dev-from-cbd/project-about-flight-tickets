@@ -22,6 +22,11 @@ const city = [
   "Las Vegas",
   "Madrid",
 ];
+
+const getData = () = {
+  
+};
+
 const showCity = (input, list) => {
   list.textContent = "";
 
