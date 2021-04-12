@@ -40,11 +40,11 @@ const showCity = (input, list) => {
   }
 };
 
-const selectCity = (event) => {
+const selectCity = (event, input, list) => {
   const target = event.target;
   if (target.tagName.toLowerCase() === "li") {
-    inputCitiesFrom.value = target.textContent;
-    dropdownCitiesFrom.textContent = "";
+    input.value = target.textContent;
+    list.textContent = "";
   }
 };
 
