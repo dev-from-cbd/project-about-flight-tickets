@@ -24,7 +24,9 @@ const city = [
 ];
 
 const getData = () = {
-  
+  const request = new XMLHttpRequest();
+
+  request.open("GET", url)
 };
 
 const showCity = (input, list) => {
