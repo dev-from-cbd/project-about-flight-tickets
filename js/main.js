@@ -23,13 +23,19 @@ const city = [
   "Madrid",
 ];
 
-const getData = () = {
+const getData = (url) => {
   const request = new XMLHttpRequest();
 
-  request.open("GET", url)
+  request.open("GET", url);
 
-  request.send();
+  request.addEventListener("readystatechange", () => {
+ console.log(request.readyState);
+  });
+
+  request.send('https://jsonplaceholder.typicode.com/todos/1');
 };
+
+getData()
 
 const showCity = (input, list) => {
   list.textContent = "";
