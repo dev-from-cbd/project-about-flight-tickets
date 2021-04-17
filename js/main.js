@@ -29,7 +29,7 @@ const getData = (url) => {
   request.open("GET", url);
 
   request.addEventListener("readystatechange", () => {
- console.log(request.readyState);
+ console.log(request.readyState !== 4) return;
   });
 
   request.send('https://jsonplaceholder.typicode.com/todos/1');
