@@ -29,13 +29,15 @@ const getData = (url) => {
   request.open("GET", url);
 
   request.addEventListener("readystatechange", () => {
- console.log(request.readyState !== 4) return;
+ console.log(request.readyState === 200) {
+   console.log();
+ }
   });
 
-  request.send('https://jsonplaceholder.typicode.com/todos/1');
+  request.send();
 };
 
-getData()
+getData('https://jsonplaceholder.typicode.com/todos/1')
 
 const showCity = (input, list) => {
   list.textContent = "";
