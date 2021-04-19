@@ -24,7 +24,7 @@ const city = [
 ];
 
 //functions
-const getData = (url) => {
+const getData = (url, callback) => {
   const request = new XMLHttpRequest();
 
   request.open("GET", url);
@@ -33,7 +33,7 @@ const getData = (url) => {
     if (request.readyState !== 4) return;
 
     if (request.status === 200) {
-      console.log(request);
+      callback(request.response);
     } else {
       console.error(request.status);
     }
@@ -42,7 +42,7 @@ const getData = (url) => {
   request.send();
 };
 
-getData("https://jsonplaceholder.typicode.com/todos/1");
+
 
 const showCity = (input, list) => {
   list.textContent = "";
@@ -85,3 +85,8 @@ dropdownCitiesFrom.addEventListener("click", (event) => {
 dropdownCitiesTo.addEventListener("click", (event) => {
   selectCity(event, inputCitiesTo, dropdownCitiesTo);
 });
+
+
+//Calls function
+//getData("https://jsonplaceholder.typicode.com/todos/1");
+getData("");
