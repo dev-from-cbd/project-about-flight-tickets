@@ -5,6 +5,10 @@ const formSearch = document.querySelector(".form-search"),
   dropdownCitiesTo = formSearch.querySelector(".dropdown__cities-to"),
   inputDateDepart = formSearch.querySelector(".input__date-depart");
 
+// data
+const citiesApi = "js/cities.json",
+  proxy = "http://cors-anywhere.herokuapp.com/";
+
 const city = [
   "Melbourne",
   "Sydney",
@@ -41,8 +45,6 @@ const getData = (url, callback) => {
 
   request.send();
 };
-
-
 
 const showCity = (input, list) => {
   list.textContent = "";
@@ -86,7 +88,8 @@ dropdownCitiesTo.addEventListener("click", (event) => {
   selectCity(event, inputCitiesTo, dropdownCitiesTo);
 });
 
-
 //Calls function
 //getData("https://jsonplaceholder.typicode.com/todos/1");
-getData("");
+getData(citiesApi, (data) => {
+  console.log(JSON.parse(data));
+});
