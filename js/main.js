@@ -1,3 +1,4 @@
+// getting elements from a page
 const formSearch = document.querySelector(".form-search"),
   inputCitiesFrom = formSearch.querySelector(".input__cities-from"),
   dropdownCitiesFrom = formSearch.querySelector(".dropdown__cities-from"),
@@ -6,26 +7,10 @@ const formSearch = document.querySelector(".form-search"),
   inputDateDepart = formSearch.querySelector(".input__date-depart");
 
 // data
-const citiesApi = "js/cities.json",
+const citiesApi = "http://api.travelpayouts.com/data/en/cities.json",
   proxy = "http://cors-anywhere.herokuapp.com/";
 
-const city = [
-  "Melbourne",
-  "Sydney",
-  "Bendigo",
-  "Gold Coast",
-  "Perth",
-  "Darvin",
-  "New York",
-  "San Francisco",
-  "London",
-  "Paris",
-  "Mexico",
-  "Toronto",
-  "Bangkok",
-  "Las Vegas",
-  "Madrid",
-];
+let city = [];
 
 //functions
 const getData = (url, callback) => {
@@ -89,7 +74,12 @@ dropdownCitiesTo.addEventListener("click", (event) => {
 });
 
 //Calls function
-//getData("https://jsonplaceholder.typicode.com/todos/1");
-getData(citiesApi, (data) => {
-  console.log(JSON.parse(data));
+getData(proxy + citiesApi, (data) => {
+  const dataCities = JSON.parse(data);
+
+  city = dataCities.filter((item) => {
+    return true;
+  });
+
+  console.log(city);
 });
