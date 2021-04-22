@@ -36,14 +36,14 @@ const showCity = (input, list) => {
 
   if (input.value !== "") {
     const filterCity = city.filter((item) => {
-      const fixItem = item.toLowerCase();
+      const fixItem = item.name.toLowerCase();
       return fixItem.includes(input.value.toLowerCase());
     });
 
     filterCity.forEach((item) => {
       const li = document.createElement("li");
       li.classList.add("dropdown__city");
-      li.textContent = item;
+      li.textContent = item.name;
       list.append(li);
     });
   }
@@ -78,6 +78,8 @@ getData(proxy + citiesApi, (data) => {
   const dataCities = JSON.parse(data);
 
   city = dataCities.filter((item) => {
+    console.log(item.name);
+
     return true;
   });
 
