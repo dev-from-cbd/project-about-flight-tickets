@@ -78,10 +78,6 @@ getData(proxy + citiesApi, (data) => {
   const dataCities = JSON.parse(data);
 
   city = dataCities.filter((item) => {
-    console.log(item.name);
-
     return true;
   });
-
-  console.log(city);
 });
