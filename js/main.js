@@ -36,10 +36,10 @@ const showCity = (input, list) => {
 
   if (input.value !== "") {
     const filterCity = city.filter((item) => {
-      console.log(item.name);
-
-      const fixItem = item.name.toLowerCase();
-      return fixItem.includes(input.value.toLowerCase());
+      if (item.name) {
+        const fixItem = item.name.toLowerCase();
+        return fixItem.includes(input.value.toLowerCase());
+      }
     });
 
     filterCity.forEach((item) => {
@@ -77,9 +77,5 @@ dropdownCitiesTo.addEventListener("click", (event) => {
 
 //Calls function
 getData(proxy + citiesApi, (data) => {
-  const dataCities = JSON.parse(data);
-
-  city = dataCities.filter((item) => {
-    return true;
-  });
+  city = JSON.parse(data);
 });
