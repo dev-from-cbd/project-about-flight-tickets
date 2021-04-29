@@ -9,7 +9,8 @@ const formSearch = document.querySelector(".form-search"),
 // data
 const CITIESAPI = "http://api.travelpayouts.com/data/en/cities.json",
   PROXY = "http://cors-anywhere.herokuapp.com/",
-  API_KEY = "853c139c883e1864a947c2d4131e004";
+  API_KEY = "853c139c883e1864a947c2d4131e004",
+  CALENDAR = "http://min-prices.aviasales.ru/calendar_preload";
 
 let city = [];
 
