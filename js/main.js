@@ -7,8 +7,9 @@ const formSearch = document.querySelector(".form-search"),
   inputDateDepart = formSearch.querySelector(".input__date-depart");
 
 // data
-const citiesApi = "http://api.travelpayouts.com/data/en/cities.json",
-  proxy = "http://cors-anywhere.herokuapp.com/";
+const CITIESAPI = "http://api.travelpayouts.com/data/en/cities.json",
+  PROXY = "http://cors-anywhere.herokuapp.com/",
+  API_KEY = "853c139c883e1864a947c2d4131e004";
 
 let city = [];
 
@@ -36,10 +37,8 @@ const showCity = (input, list) => {
 
   if (input.value !== "") {
     const filterCity = city.filter((item) => {
-      if (item.name !== null) {
-        const fixItem = item.name.toLowerCase();
-        return fixItem.includes(input.value.toLowerCase());
-      }
+      const fixItem = item.name.toLowerCase();
+      return fixItem.includes(input.value.toLowerCase());
     });
 
     filterCity.forEach((item) => {
@@ -76,6 +75,7 @@ dropdownCitiesTo.addEventListener("click", (event) => {
 });
 
 //Calls function
-getData(proxy + citiesApi, (data) => {
-  city = JSON.parse(data);
-});
+getData(
+  PROXY + CITIESAPI,
+  (data) => (city = JSON.parse(data).filter((item) => item.name))
+);
