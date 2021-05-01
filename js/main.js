@@ -80,3 +80,16 @@ getData(
   PROXY + CITIESAPI,
   (data) => (city = JSON.parse(data).filter((item) => item.name))
 );
+
+getData(
+  PROXY +
+    CALENDAR +
+    "?depart_date=2021-05-01&origin=SVX&destination=KGD&one_way=true&token=" +
+    API_KEY,
+  (data) => {
+    const cheapTicket = JSON.parse(data).best_prices.filter(
+      (item) => item.depart_date === "2021-05-01"
+    );
+    console.log(cheapTicket);
+  }
+);
