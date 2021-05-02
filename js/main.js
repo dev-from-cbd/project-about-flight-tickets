@@ -75,21 +75,28 @@ dropdownCitiesTo.addEventListener("click", (event) => {
   selectCity(event, inputCitiesTo, dropdownCitiesTo);
 });
 
-//Calls function
-getData(
-  PROXY + CITIESAPI,
-  (data) => (city = JSON.parse(data).filter((item) => item.name))
-);
+formSearch.addEventListener("submit", (event) => {
+  event.preventDefault();
+  console.log(event);
+});
 
+//Calls function
+getData(PROXY + CITIESAPI, (data) => {
+  city = JSON.parse(data).filter((item) => item.name);
+  console.log(city);
+});
+
+/*
 getData(
   PROXY +
     CALENDAR +
-    "?depart_date=2021-05-01&origin=SVX&destination=KGD&one_way=true&token=" +
+    "?depart_date=2021-05-02&origin=SYD&destination=MEL&one_way=true&token=" +
     API_KEY,
   (data) => {
     const cheapTicket = JSON.parse(data).best_prices.filter(
-      (item) => item.depart_date === "2021-05-01"
+      (item) => item.depart_date === "2021-05-02"
     );
     console.log(cheapTicket);
   }
 );
+*/
