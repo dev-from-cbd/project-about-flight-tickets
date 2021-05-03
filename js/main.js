@@ -79,7 +79,7 @@ formSearch.addEventListener("submit", (event) => {
   event.preventDefault();
 
   const formData = {
-    from: "",
+    from: city.find((item) => inputCitiesFrom.value === item.name),
     to: "",
     when: "",
   };
