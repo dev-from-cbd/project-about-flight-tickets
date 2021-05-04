@@ -80,8 +80,8 @@ formSearch.addEventListener("submit", (event) => {
 
   const formData = {
     from: city.find((item) => inputCitiesFrom.value === item.name),
-    to: "",
-    when: "",
+    to: city.find((item) => inputCitiesTo.value === item.name),
+    when: inputDataDepart.value,
   };
 
   console.log(formData);
