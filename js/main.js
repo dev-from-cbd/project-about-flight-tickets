@@ -79,7 +79,9 @@ formSearch.addEventListener("submit", (event) => {
   event.preventDefault();
 
   const cityFrom = city.find((item) => inputCitiesFrom.value === item.name);
-  const cityTo = city.find((item) => inputCitiesTo.value === item.name);
+  const cityTo = city.find((item) => {
+    return inputCitiesTo.value === item.name;
+  });
 
   const formData = {
     from: cityFrom.code,
