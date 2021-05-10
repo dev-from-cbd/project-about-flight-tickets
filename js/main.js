@@ -92,7 +92,17 @@ formSearch.addEventListener("submit", (event) => {
     when: inputDataDepart.value,
   };
 
-  console.log(formData);
+  const requestData =
+    "?depart_date=" +
+    formData.when +
+    "&origin=" +
+    formData.from +
+    "&destination=" +
+    formData.to +
+    "&one_way=true&token=" +
+    API_KEY;
+
+  console.log(requestData);
 });
 
 //Calls function
