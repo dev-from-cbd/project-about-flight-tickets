@@ -89,7 +89,7 @@ formSearch.addEventListener("submit", (event) => {
   const formData = {
     from: cityFrom.code,
     to: cityTo.code,
-    when: inputDataDepart.value,
+    when: inputDateDepart.value,
   };
 
   const requestData =
@@ -102,7 +102,9 @@ formSearch.addEventListener("submit", (event) => {
     "&one_way=true&token=" +
     API_KEY;
 
-  console.log(requestData);
+  getData(PROXY + CALENDAR + requestData, (response) => {
+    console.log(response);
+  });
 });
 
 //Calls function
