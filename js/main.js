@@ -59,6 +59,11 @@ const selectCity = (event, input, list) => {
   }
 };
 
+const renderCheap = (data, date) => {
+  const cheapTicketMonth = JSON.parse(data);
+  console.log(cheapTicketMonth);
+};
+
 inputCitiesFrom.addEventListener("input", () => {
   showCity(inputCitiesFrom, dropdownCitiesFrom);
 });
@@ -99,11 +104,10 @@ formSearch.addEventListener("submit", (event) => {
     formData.from +
     "&destination=" +
     formData.to +
-    "&one_way=true&token=" +
-    API_KEY;
+    "&one_way=true";
 
-  getData(PROXY + CALENDAR + requestData, (response) => {
-    console.log(response);
+  getData(CALENDAR + requestData, (response) => {
+    renderCheap(response, formData.when);
   });
 });
 
