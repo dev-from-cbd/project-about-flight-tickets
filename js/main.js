@@ -64,6 +64,16 @@ const renderCheapDay = (cheapTicket) => {
 };
 
 const renderCheapYear = (cheapTickets) => {
+  item.sort(function (a, b) {
+    if (a.name > b.name) {
+      return 1;
+    }
+    if (a.name < b.name) {
+      return -1;
+    }
+    return0;
+  });
+
   console.log(cheapTickets);
 };
 
