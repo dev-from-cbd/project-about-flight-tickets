@@ -64,14 +64,14 @@ const renderCheapDay = (cheapTicket) => {
 };
 
 const renderCheapYear = (cheapTickets) => {
-  item.sort(function (a, b) {
-    if (a.name > b.name) {
+  cheapTickets.sort((a, b) => {
+    if (a.value > b.value) {
       return 1;
     }
-    if (a.name < b.name) {
+    if (a.value < b.value) {
       return -1;
     }
-    return0;
+    return 0;
   });
 
   console.log(cheapTickets);
