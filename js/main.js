@@ -39,7 +39,7 @@ const showCity = (input, list) => {
   if (input.value !== "") {
     const filterCity = city.filter((item) => {
       const fixItem = item.name.toLowerCase();
-      return fixItem.includes(input.value.toLowerCase());
+      return fixItem.startsWith(input.value.toLowerCase());
     });
 
     filterCity.forEach((item) => {
@@ -64,15 +64,7 @@ const renderCheapDay = (cheapTicket) => {
 };
 
 const renderCheapYear = (cheapTickets) => {
-  cheapTickets.sort((a, b) => {
-    if (a.value > b.value) {
-      return 1;
-    }
-    if (a.value < b.value) {
-      return -1;
-    }
-    return 0;
-  });
+  cheapTickets.sort((a, b) => a.value - b.value);
 
   console.log(cheapTickets);
 };
@@ -116,8 +108,8 @@ formSearch.addEventListener("submit", (event) => {
   });
 
   const formData = {
-    from: cityFrom.code,
-    to: cityTo.code,
+    from: cityFrom,
+    to: cityTo,
     when: inputDateDepart.value,
   };
 
@@ -142,6 +134,17 @@ formSearch.addEventListener("submit", (event) => {
 //Calls function
 getData(PROXY + CITIESAPI, (data) => {
   city = JSON.parse(data).filter((item) => item.name);
+
+  city.sort((a, b) => {
+    if (a.name > b.name) {
+      return 1;
+    }
+    if (a.name < b.name) {
+      return -1;
+    }
+    return 0;
+  });
+
   console.log(city);
 });
 
