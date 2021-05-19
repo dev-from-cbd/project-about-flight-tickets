@@ -113,22 +113,17 @@ formSearch.addEventListener("submit", (event) => {
     when: inputDateDepart.value,
   };
 
-  const requestData =
-    `?depart_date=${formData.when}&origin=${formData.from}` +
-    `&destination=${formData.to}&one_way=true`;
+  if (formData.from && formData.to) {
+    const requestData =
+      `?depart_date=${formData.when}&origin=${formData.from}` +
+      `&destination=${formData.to}&one_way=true`;
 
-  const requestData2 =
-    "?depart_date=" +
-    formData.when +
-    "&origin=" +
-    formData.from +
-    "&destination=" +
-    formData.to +
-    "&one_way=true";
-
-  getData(CALENDAR + requestData, (data) => {
-    renderCheap(data, formData.when);
-  });
+    getData(CALENDAR + requestData, (data) => {
+      renderCheap(data, formData.when);
+    });
+  } else {
+    alert("Please, enter correct name of a city");
+  }
 });
 
 //Calls function
