@@ -115,20 +115,23 @@ formSearch.addEventListener("submit", (event) => {
 
   if (formData.from && formData.to) {
     const requestData =
-      `?depart_date=${formData.when}&origin=${formData.from}` +
-      `&destination=${formData.to}&one_way=true`;
+      `?depart_date=${formData.when}&origin=${formData.from.code}` +
+      `&destination=${formData.to.code}&one_way=true`;
 
     getData(CALENDAR + requestData, (data) => {
       renderCheap(data, formData.when);
     });
-  } else {
+  }, error => {
     alert("Please, enter correct name of a city");
+    console.error('Error', error)
   }
 });
 
 //Calls function
 getData(PROXY + CITIESAPI, (data) => {
-  city = JSON.parse(data).filter((item) => item.name);
+  city = JSON.parse(data).filter(
+    (item) => item.name && item.destination && item.origin
+  );
 
   city.sort((a, b) => {
     if (a.name > b.name) {
@@ -142,25 +145,3 @@ getData(PROXY + CITIESAPI, (data) => {
 
   console.log(city);
 });
-
-/*
-getData(
-  PROXY +
-    CALENDAR +
-    "?depart_date=2021-05-02&origin=SYD&destination=MEL&one_way=true&token=" +
-    API_KEY,
-  (data) => {
-    const cheapTicket = JSON.parse(data).best_prices.filter(
-      (item) => item.depart_date === "2021-05-02"
-    );
-    console.log(cheapTicket);
-  }
-);
-*/
-
-// const arr = ["Maximum", "Min"];
-
-// const name = arr.filter((item, i, array) => {
-//   return item.length > 4;
-// });
-// console.log(name);
