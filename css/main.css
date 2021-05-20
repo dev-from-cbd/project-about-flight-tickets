@@ -17,6 +17,19 @@ button {
   cursor: pointer;
 }
 
+.wrapper__ticket {
+  display: none;
+}
+
+.block__ticket {
+  margin: 50px 0;
+  display: none;
+}
+
+.display__none {
+  display: none;
+}
+
 .input {
   display: block;
 }
@@ -267,10 +280,6 @@ input {
 .city__name {
   font-size: 18px;
   font-weight: 600;
-}
-
-.block__ticket {
-  margin: 50px 0;
 }
 
 @media (max-width: 768px) {
