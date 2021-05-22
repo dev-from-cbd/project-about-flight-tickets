@@ -84,6 +84,19 @@ const getChanges = (n) => {
   }
 };
 
+const getLinkAviasales = () => {
+  let link = 'https://www.aviasales.ru/search/';
+
+  link += data.origin;
+
+  const date = new Date(data.depart_date);
+
+  console.log(data);
+
+  return link;
+}
+//https://www.aviasales.ru/search/SVX2905KGD1
+
 const createCard = (data) => {
 const ticket = document.createElement("article");
 ticket.classList.add('ticket');
@@ -95,7 +108,7 @@ if (data) {
     <h3 class="agent">${data.gate}</h3>
       <div class="ticket__wrapper">
         <div class="left-side">
-          <a href="https://www.aviasales.ru/search/SVX2905KGD1" class="button button__buy">Buy for ${data.value}&dollar;</a>
+          <a href="${getLinkAviasales}" class="button button__buy">Buy for ${data.value}&dollar;</a>
         </div>
         <div class="right-side">
           <div class="block-left">
